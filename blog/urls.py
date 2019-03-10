@@ -4,5 +4,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-
+    #create the url path for the index page for the application
+    path('', views.index, name='index'),
 ]
