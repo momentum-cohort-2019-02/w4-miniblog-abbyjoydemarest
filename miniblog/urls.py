@@ -32,5 +32,6 @@ urlpatterns = [
     #redirects base url of project to url of application. '' because if you do '/' you get a warning, set permanent to true so it happens no matter what
     path('', RedirectView.as_view(url='/blog/', permanent=True)),
 ]
+
 #add a url path for static files/images
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
