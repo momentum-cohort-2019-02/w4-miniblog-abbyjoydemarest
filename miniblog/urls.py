@@ -13,9 +13,24 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+#import admin from django contributors
 from django.contrib import admin
-from django.urls import path
+#import path and include from django urls
+from django.urls import path, include
+#import RedirectViews from django.views.generic to make it so you redirect the base url of the project to the url of the app through url maps
+from django.views.generic import RedirectView
+#import static to be able to use static files and images
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
+    #connects to urls for admin
     path('admin/', admin.site.urls),
+    #connects to the urls in the blog app
+    path('blog/', include('blog.urls')),
+    #redirects base url of project to url of application. '' because if you do '/' you get a warning, set permanent to true so it happens no matter what
+    path('', RedirectView.as_view(url='/blog/', permanent=True)),
 ]
+#add a url path for static files/images
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
