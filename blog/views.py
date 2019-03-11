@@ -33,3 +33,6 @@ class BlogListView(generic.ListView):
 
 class BlogDetailView(generic.DetailView):
     model = Blog
+
+class BloggersListView(generic.ListView):
+    model = Blogger
