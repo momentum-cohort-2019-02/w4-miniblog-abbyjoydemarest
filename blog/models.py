@@ -43,3 +43,8 @@ class Blogger(models.Model):
     def __str__(self):
         """ String for representing the Blogger """
         return self.username
+
+
+    def get_absolute_url(self):
+        """ Gets the url for the  blogger details"""
+        return reverse('blogger-detail', args=[str(self.id)])
