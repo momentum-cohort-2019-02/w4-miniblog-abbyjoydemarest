@@ -29,3 +29,7 @@ def index(request):
 class BlogListView(generic.ListView):
     model = Blog
     queryset = Blog.objects.order_by('-post_date')
+    paginate_by = 5
+
+class BlogDetailView(generic.DetailView):
+    model = Blog
