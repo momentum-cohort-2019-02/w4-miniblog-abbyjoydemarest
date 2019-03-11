@@ -36,3 +36,8 @@ class BlogDetailView(generic.DetailView):
 
 class BloggersListView(generic.ListView):
     model = Blogger
+
+class BloggerDetailView(generic.DetailView):
+    model = Blogger
+    queryset = Blog.objects.order_by('-post_date')
+    

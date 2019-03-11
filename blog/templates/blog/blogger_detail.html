@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Blogger: {{ blogger.username }}</h1>
+    <h2>Bio</h2>
+    <p>{{ blogger.short_bio }}</p>
+    <h2>Blogs list</h2>
+    {% if blog_list %}
+    <ul>
+        {for blog in blog_list}
+        {% if author == blogger.username %}
+        <li>
+            <a href="{{ blog.get_abosulte_url }}">{{ blog.title }}</a>({{ blog.post_date }})
+        </li>
+
+    </ul>
+{% endblock %}
