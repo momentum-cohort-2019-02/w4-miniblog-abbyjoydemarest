@@ -2,17 +2,19 @@
 <!--Bring in all the information from base_generic.html and add this information to it-->
 
 {% block content %}
+
     <h1>All blogs</h1>
     <!--If there is information in blog_list then show is this way:-->
     {% if blog_list %}
     <ul>
         {% for blog in blog_list %}
         <li>
-            <a href="{{ blog.get_abosulte_url }}">{{ blog.title }}</a> ({{ blog.author }})
+            <a href="{% url 'blogs' %}">{{ blog.title }}</a> ({{ blog.post_date }})<a href="{% url 'blogger' %}">({{ blog.author }})</a>
         </li>
         {% endfor %}
     </ul>
     {% else %}
         <p>There are not yet any blogs posted to MiniBlog. Come back soon and check them out!!</p>
     {% endif %}
+
 {% endblock %} 

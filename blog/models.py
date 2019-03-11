@@ -3,7 +3,7 @@ from django.urls import reverse
 
 # Create your models here.
 class Blog(models.Model):
-    """ Model representing a blog, not a specific blog input."""
+    """ Model representing a blog post."""
 
 
     #now define the fields that are needed for this class

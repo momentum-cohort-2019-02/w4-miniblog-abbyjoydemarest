@@ -7,11 +7,17 @@
     <h2>Blogs list</h2>
     {% if blog_list %}
     <ul>
-        {for blog in blog_list}
-        {% if author == blogger.username %}
-        <li>
-            <a href="{{ blog.get_abosulte_url }}">{{ blog.title }}</a>({{ blog.post_date }})
-        </li>
-
+        {% for blog in blog_list %}
+            {% if author == blogger.username %}
+                <li>
+                    <a href="{{ blog.get_abosulte_url }}">{{ blog.title }}</a>({{ blog.post_date }})
+                </li>
+            {% else %}
+                <p>This blogger has not written or posted a blog post yet.</p>
+            
+            {% endif %}
+        {% endfor %}
     </ul>
+    {% endif %}
+
 {% endblock %}
