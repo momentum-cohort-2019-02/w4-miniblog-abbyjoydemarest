@@ -4,9 +4,9 @@
     <h1>All bloggers</h1>
     {% if blogger_list %}
     <ul>
-        {% for person in blogger_list %}
+        {% for blogger in blogger_list %}
         <li>
-            <a href="{% url 'bloggers' %}">{{ blogger.username }}</a>
+            <a href="{{ blog.blogger.get_absolute_url }}">{{ blogger.username }}</a>
         </li>
         {% endfor %}
     </ul>

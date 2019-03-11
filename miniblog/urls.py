@@ -24,7 +24,11 @@ from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
 
+if settings.DEBUG:
+    import debug_toolbar
+
 urlpatterns = [
+    path('__debug__/', include(debug_toolbar.urls)),
     #connects to urls for admin
     path('admin/', admin.site.urls),
     #connects to the urls in the blog app

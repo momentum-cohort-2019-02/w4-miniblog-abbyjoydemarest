@@ -1,22 +1,19 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-    <h1>Blogger: {{ blogger.username }}</h1>
+    <h1>Blogger: {{ blog.blogger.username }}</h1>
     <h2>Bio</h2>
-    <p>{{ blogger.short_bio }}</p>
+    <p>{{ blog.blogger.short_bio }}</p>
     <h2>Blogs list</h2>
-    {% if blog_list %}
+    {% if blogger.blog_set.count %}
     <ul>
-        {% for blog in blog_list %}
-            {% if author == blogger.username %}
-                <li>
-                    <a href="{{ blog.get_abosulte_url }}">{{ blog.title }}</a>({{ blog.post_date }})
-                </li>
-            {% else %}
-                <p>This blogger has not written or posted a blog post yet.</p>
-            
-            {% endif %}
+        {% for blog in blogger.blog_set.all %}
+            <li>
+                <a href="{{ blog.blogger.get_absolute_url }}">{{ blog.title }}</a>({{ blog.post_date }})
+            </li>
         {% endfor %}
+    {% else %}
+        <p>This blogger has not written or posted a blog post yet.</p>
     </ul>
     {% endif %}
 
