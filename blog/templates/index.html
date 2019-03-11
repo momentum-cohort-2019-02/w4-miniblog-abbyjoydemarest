@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+<!--Above line draws all the informaiton from base_generic.html and then adds on what is below.-->
+<!--Below line starts a content block in Djanog Template Language. This separates the information below into being the content of the page.-->
+{% block content %}
+    <h1>MiniBlog Home</h1>
+    <p>Welcome to MiniBlog, a website developed by Abby Demarest with help from <em>Mozilla Developer Network </em>, <em>Momentum Learning staff </em> and <em>Cohort 4 peers.</em>!</p>
+    <p>The purpose of MiniBlog is to allow users to write about their journey through their time as students in Momentum Learning's Cohort 4.</p>
+    <h2>Dynamic content</h2>
+    <p>The MiniBlog has the following record counts and information:</p>
+    <ul>
+        <!--List the number of blog posts and bloggers so new users can get excited about joining.-->
+        <li><strong>Blogs:</strong>{{ num_blogs }}</li>
+        <li><strong>Bloggers:</strong>{{ num_bloggers }}</li>
+    </ul>
+{% endblock %}
