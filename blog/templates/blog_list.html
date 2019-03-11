@@ -8,6 +8,11 @@
     <ul>
         {% for blog in blog_list %}
         <li>
-            <a href="{{ blog.get_abosulte_url }}"
+            <a href="{{ blog.get_abosulte_url }}">{{ blog.title }}</a> ({{ blog.author }})
         </li>
+        {% endfor %}
     </ul>
+    {% else %}
+        <p>There are not yet any blogs posted to MiniBlog. Come back soon and check them out!!</p>
+    {% endif %}
+{% endblock %} 
